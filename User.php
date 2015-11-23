@@ -1,12 +1,15 @@
 <?php
-
+//$rows = mysli_query("select * from erwa");
+//for($row = mysqli_fetch_row($rows)){
+  //  $id[a] = $row[0];
+    //$name[a] = $row["name"];
+//}
 class User
 {
-    private static $id=-1;
     private $email;
     private $name;
     private $password;
-    private $gender;
+    private $gender;//0男  1女
     private $age;
     private $birthday;
     private $headImagId;
@@ -16,32 +19,23 @@ class User
         $this->password=$password;
         $this->email=$email;
         $this->gender=$gender;
-        $this->id +=$this->id+1;
         $this->name="Q";
         $this->age=0;
-        $this->birthday="1.1";
-        $this->headImagId="";
+        $this->birthday=0101;
+        $this->headImagId=0;
     }
 
-    function getId(){return $this->id;}
+    function __set ( $name , $value )
+    {
+        // TODO: Implement __set() method.
+        $this->$name=$value;
+    }
 
-    function getEmail(){return $this->email;}
+    function __get ( $name )
+    {
+        // TODO: Implement __get() method.
+        return $this->$name;
+    }
 
-    function setPassword($password){$this->password=$password;}
-    function getPassword(){return $this->password;}
-
-    function setName($name){ $this->name=$name;}
-    function getName(){return $this->name;}
-
-    function setGender($gender){$this->gender=$gender;}
-    function getGender(){return $this->gender;}
-
-    function setAge($age){$this->age=$age;}
-    function getAge(){return $this->age;}
-
-    function setBirthday($birthday){ $this->birthday=$birthday;}
-    function getBirthday(){ return $this->birthday;}
-
-    function setHeadImagId($headImagId){$this->headImagId=$headImagId;}
-    function getHeadImagId(){return $this->headImagId;}
+    function getId(){return self::$id;}
 }

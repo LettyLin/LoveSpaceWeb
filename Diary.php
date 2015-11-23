@@ -19,18 +19,15 @@ class Diary
         $this->accessible=1;
     }
 
-    function setTitle($title){$this->title=$title;}
-    function getTitle(){return $this->title;}
+    function __set ( $name , $value )
+    {
+        // TODO: Implement __set() method.
+        $this->$name=$value;
+    }
 
-    function setContent($content){$this->content=$content;}
-    function getContent(){return $this->content;}
-
-    function getTime(){return $this->time;}
-
-    function getType(){return $this->type;}
-
-    function setAccessible($accessible){$this->accessible=$accessible;}
-    function getAccessible(){return $this->accessible;}
-
-    function getId(){return $this->id;}
+    function __get ( $name )
+    {
+        // TODO: Implement __get() method.
+        return $this->$name;
+    }
 }
